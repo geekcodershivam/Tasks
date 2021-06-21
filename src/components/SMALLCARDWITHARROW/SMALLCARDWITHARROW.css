@@ -1,0 +1,4 @@
+.smallCardArrowContainer {
+  display: flex;
+  flex-direction: column;
+}

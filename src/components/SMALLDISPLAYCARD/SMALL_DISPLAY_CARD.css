@@ -1,0 +1,17 @@
+.smallCardContainers {
+  display: block;
+}
+
+.scrollContainer > div {
+  position: relative !important;
+}
+
+.nonScrollContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.nonScrollContainer > div {
+  width: 48%;
+}

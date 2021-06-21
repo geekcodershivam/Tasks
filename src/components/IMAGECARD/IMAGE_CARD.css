@@ -1,0 +1,19 @@
+.cardImage {
+  border-radius: 12px;
+  background-size: cover;
+  height: 100%;
+}
+
+.imgCardContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.imageCard {
+  min-height: 136px;
+  border-radius: 12px;
+  z-index: 2;
+  background: #f7f6f3;
+  width: 100%;
+  max-width: 325px;
+}

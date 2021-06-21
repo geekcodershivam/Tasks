@@ -1,0 +1,12 @@
+.smallcard {
+  width: 7rem;
+}
+
+.smallCardContainer {
+  display: block;
+
+}
+
+.scrollContainer>div {
+  position: relative !important;
+}
