@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import CancelIcon from '@material-ui/icons/Cancel';
 import LongPress from '../../utils/LongPress';
-import getformttedHTML from '../../utils/getFormtted';
+import getformattedHTML from '../../utils/getFormatted';
 import validURL from '../../utils/validUrl'; 
 export default function BIG_DISPLAY_CARD({ cards }) {
   const [longPressed, setLongPressed] = useState(false);
@@ -43,8 +43,8 @@ export default function BIG_DISPLAY_CARD({ cards }) {
         }}
         {...longPressEvent}
       >
-        {getformttedHTML(cards.formatted_title, cards.title, 'Title')}
-        {getformttedHTML(
+        {getformattedHTML(cards.formatted_title, cards.title, 'Title')}
+        {getformattedHTML(
           cards.formatted_description,
           cards.title,
           'Description'
