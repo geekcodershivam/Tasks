@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PullToRefresh from 'react-simple-pull-to-refresh';
 import API from './utils/API/api';
 import LOADER from './components/LOADER/Loader';
 import HEADER from './components/HEADER/HEADER';
@@ -11,13 +12,14 @@ import './App.css';
 export default function App() {
   const [designType, setdesignType] = useState({});
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     (async () => {
-      // api request 
+      // api request
       const response = await API.get('/04a04703-5557-4c84-a127-8c55335bb3b4');
       // arr => arr of card_groups for easy to maintain response data
       let arr = response['data']['card_groups'];
-      // obj => filtering the DesignType example: HC1 : [] 
+      // obj => filtering the DesignType example: HC1 : []
       let obj = {
         HC1: [],
         HC3: [],
@@ -32,12 +34,12 @@ export default function App() {
       setLoading(false);
     })();
   }, []);
-  
+
   // DesignType array for rendering the components
 
   const DesignType = ['HC3', 'HC6', 'HC5', 'HC9', 'HC1'];
 
- // DesignType match with any following type component render if not match render null.
+  // DesignType match with any following type component render if not match render null.
   const DesignTypes = (type) => {
     if (designType[type] === undefined) {
       return null;
@@ -70,8 +72,19 @@ export default function App() {
     <div className="app">
       <HEADER />
       <div className="Wrap">
-        <div className="Container">{
-        loading ? <LOADER/> : DesignType.map((type) => DesignTypes(type))}</div>
+        <PullToRefresh
+          onRefresh={() => {
+            window.location.reload();
+          }}
+        >
+          <div className="Container">
+            {loading === true ? (
+              <LOADER />
+            ) : (
+              DesignType.map((type) => DesignTypes(type))
+            )}
+          </div>
+        </PullToRefresh>
       </div>
     </div>
   );
