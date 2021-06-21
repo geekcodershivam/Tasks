@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import API from './utils/API/api';
+import LOADER from './components/LOADER/Loader';
 import HEADER from './components/HEADER/HEADER';
 import BIGDISPLAYCARD from './components/BIGDISPLAYCARD/BIGDISPLAYCARD';
 import SMALLCARDWITHARROW from './components/SMALLCARDWITHARROW/SMALL_CARD_WITH_ARROW';
@@ -9,6 +10,7 @@ import SMALLDISPLAYCARD from './components/SMALLDISPLAYCARD/SMALL_DISPLAY_CARD';
 import './App.css';
 export default function App() {
   const [designType, setdesignType] = useState({});
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     (async () => {
       // api request 
@@ -27,6 +29,7 @@ export default function App() {
         obj[`${element.design_type}`].push(element);
       });
       setdesignType(obj);
+      setLoading(false);
     })();
   }, []);
   
@@ -67,7 +70,8 @@ export default function App() {
     <div className="app">
       <HEADER />
       <div className="Wrap">
-        <div className="Container">{DesignType.map((type) => DesignTypes(type))}</div>
+        <div className="Container">{
+        loading ? <LOADER/> : DesignType.map((type) => DesignTypes(type))}</div>
       </div>
     </div>
   );
