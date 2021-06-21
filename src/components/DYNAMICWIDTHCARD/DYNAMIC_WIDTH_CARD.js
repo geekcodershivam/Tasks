@@ -3,10 +3,10 @@ import './DYNAMIC_WIDTH_CARD.css';
 import { Page } from 'framer';
 import CARD from './CARD';
 export default function DYNAMIC_WIDTH_CARD({ data }) {
-  console.log(data);
+ 
   let renderlist = () => {
     if (data === undefined) {
-      <div>Loading....</div>;
+     return null
     } else {
       return (
         <Page

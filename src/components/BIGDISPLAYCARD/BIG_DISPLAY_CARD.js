@@ -81,7 +81,7 @@ export default function BIG_DISPLAY_CARD({ cards }) {
           className="controlBtn"
           type="button"
           title="Dismiss this card"
-          onClick={() =>""}
+          onClick={() =>removedCard(cards.name)}
         >
           <CancelIcon style={{ color: '#FBAF03' }} />
           <div className="controlText">dismiss now</div>

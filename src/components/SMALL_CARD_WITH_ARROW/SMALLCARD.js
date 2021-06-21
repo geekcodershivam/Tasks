@@ -4,7 +4,7 @@ import getformttedHTML from '../../utils/getFormatted';
 import './SMALLCARD.css';
 
 export default function SMALLCARD({ data }) {
-  console.log(data);
+  
   return (
     <div
       onClick={() => (window.location.href = `${data['url']}`)}

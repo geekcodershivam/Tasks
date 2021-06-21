@@ -5,7 +5,7 @@ import validURL from '../../utils/validUrl';
 import './SMALLCARD.css';
 
 export default function SMALLCARD({ data }) {
-  console.log(data);
+ 
   return (
     <div
     onClick={() => {

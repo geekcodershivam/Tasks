@@ -3,7 +3,7 @@ import { Frame, Page } from 'framer';
 import './IMAGE_CARD.css';
 import validURL from '../../utils/validUrl'; 
 export default function IMAGE_CARD({ data }) {
-  console.log(data)
+ 
   let CARDs = () => {
     if (data === undefined) {
       <div>Loading....</div>;
